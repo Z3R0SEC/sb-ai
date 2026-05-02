@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 DB = "chat.db"       
 key = os.getenv("key")
-GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
 HEADERS = {"Content-Type": "application/json"}
 
 brain = "Your name is SB, minimalist AI assistant. Be brief, no greetings unless user greets first, no follow-up questions."
