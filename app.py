@@ -3,7 +3,6 @@ import sqlite3, requests
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-csrf = CSRFProtect(app)
 
 DB = "chat.db"       
 key = os.getenv("key")
@@ -76,7 +75,6 @@ body{margin:0;height:100vh;display:flex;justify-content:center;align-items:cente
 
 
 @app.route("/api/ai", methods=["POST"])
-@csrf.exempt
 def ai():
     try:
         data = request.get_json(force=True) if request.is_json else request.form.to_dict()
