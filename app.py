@@ -1,10 +1,13 @@
-import sqlite3, requests                                        from flask import Flask, request, jsonify
-from flask_wtf import CSRFProtect
+import os
+import sqlite3, requests
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
-DB = "chat.db"                                                  GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyAZjj770H5Py3FhkEaeo0zb8rUKuoSKEts"
+DB = "chat.db"       
+key = os.getenv("key")
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}"
 HEADERS = {"Content-Type": "application/json"}
 
 brain = "Your name is SB, minimalist AI assistant. Be brief, no greetings unless user greets first, no follow-up questions."
